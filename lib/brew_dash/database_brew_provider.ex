@@ -5,34 +5,37 @@ defmodule BrewDash.DatabaseBrewProvider do
   @displayable_sessions 8
 
   @impl true
-  def handle_cards(:init, _opts) do
+  def handle_cards(:init, opts) do
     BrewDash.Sync.subscribe(:brew_sessions)
 
     cards =
       [:serving, :conditioning]
-      |> fetch_brew_sessions()
+      |> fetch_brew_sessions(opts)
       |> Enum.with_index()
       |> Enum.map(&session_to_card/1)
 
     {:ok, cards}
   end
 
-  def handle_cards(:brew_sessions_updated, _) do
+  def handle_cards(:brew_sessions_updated, opts) do
     cards =
       [:serving, :conditioning]
-      |> fetch_brew_sessions()
+      |> fetch_brew_sessions(opts)
       |> Enum.with_index()
       |> Enum.map(&session_to_card/1)
 
     {:ok, cards}
   end
 
-  defp fetch_brew_sessions(statuses) do
+  defp fetch_brew_sessions(statuses, opts) do
+    num_displayable = Keyword.get(opts, :num_displayable, @displayable_sessions)
+
     statuses
     |> Brews.Brew.with_statuses()
     |> Enum.sort(&Brews.Display.sort_tap_number/2)
     |> append_new_sessions()
     |> Enum.sort(&Brews.Display.sort_status/2)
+    |> Enum.take(num_displayable)
   end
 
   defp append_new_sessions(sessions) when length(sessions) < @displayable_sessions do
