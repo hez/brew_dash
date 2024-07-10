@@ -1,8 +1,8 @@
 <.live_component module={BrewDashWeb.Admin.MenuComponent} id="menu" />
 
 <div class="container px-8">
-  <p class="alert alert-info" role="alert"><%= live_flash(@flash, :info) %></p>
-  <p class="alert alert-danger" role="alert"><%= live_flash(@flash, :error) %></p>
+  <p class="alert alert-info" role="alert"><%= Phoenix.Flash.get(@flash, :info) %></p>
+  <p class="alert alert-danger" role="alert"><%= Phoenix.Flash.get(@flash, :error) %></p>
 
   <h3>Recipes</h3>
   <form id="upload-form" phx-submit="save-recipes" phx-change="validate">
