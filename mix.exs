@@ -65,7 +65,7 @@ defmodule BrewDash.MixProject do
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
-      {:tesla, "~> 1.9.0"},
+      {:tesla, "~> 1.11.2"},
       {:tzdata, "~> 1.1.0"}
     ]
   end
