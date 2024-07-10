@@ -22,7 +22,7 @@ defmodule BrewDashWeb.Admin.BottleEditLive do
       socket
       |> assign(bottle: bottle)
       |> put_flash(:info, "New Bottle Created")
-      |> push_redirect(to: ~p"/admin/bottles")
+      |> push_navigate(to: ~p"/admin/bottles")
 
     {:noreply, socket}
   end
@@ -35,7 +35,7 @@ defmodule BrewDashWeb.Admin.BottleEditLive do
       socket
       |> assign(bottle: bottle)
       |> put_flash(:info, "Bottle Updated")
-      |> push_redirect(to: ~p"/admin/bottles")
+      |> push_navigate(to: ~p"/admin/bottles")
 
     {:noreply, socket}
   end

@@ -18,7 +18,7 @@ defmodule BrewDashWeb.Admin.RecipeEditLive do
     socket =
       socket
       |> put_flash(:error, "Deleted")
-      |> push_redirect(to: ~p"/admin/recipes")
+      |> push_navigate(to: ~p"/admin/recipes")
 
     {:noreply, socket}
   end
@@ -37,7 +37,7 @@ defmodule BrewDashWeb.Admin.RecipeEditLive do
       socket
       |> assign(recipe: recipe)
       |> put_flash(:info, "New Recipe Created")
-      |> push_redirect(to: ~p"/admin/recipes")
+      |> push_navigate(to: ~p"/admin/recipes")
 
     {:noreply, socket}
   end
@@ -51,7 +51,7 @@ defmodule BrewDashWeb.Admin.RecipeEditLive do
       socket
       |> assign(recipe: recipe)
       |> put_flash(:info, "Recipe Updated")
-      |> push_redirect(to: ~p"/admin/recipes")
+      |> push_navigate(to: ~p"/admin/recipes")
 
     {:noreply, socket}
   end
