@@ -1,0 +1,5 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Connect
+Comment=Unclutter
+Exec=unclutter -idle 5
