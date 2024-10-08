@@ -42,8 +42,9 @@ defmodule BrewDashWeb do
         formats: [:html, :json],
         layouts: [html: BrewDashWeb.Layouts]
 
+      use Gettext, backend: BrewDashWeb.Gettext
+
       import Plug.Conn
-      import BrewDashWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -81,12 +82,13 @@ defmodule BrewDashWeb do
 
   defp html_helpers do
     quote do
+      use Gettext, backend: BrewDashWeb.Gettext
+
       # HTML escaping functionality
       import Phoenix.HTML
       import Phoenix.HTML.Form
       # Core UI components and translation
       import BrewDashWeb.CoreComponents
-      import BrewDashWeb.Gettext
       import BrewDashWeb.LiveDashboardComponents
 
       # Shortcut for generating JS commands
