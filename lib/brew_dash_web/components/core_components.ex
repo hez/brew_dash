@@ -10,10 +10,10 @@ defmodule BrewDashWeb.CoreComponents do
   [heroicons_elixir](https://github.com/mveytsman/heroicons_elixir) project.
   """
   use Phoenix.Component
+  use Gettext, backend: BrewDashWeb.Gettext
 
   alias Phoenix.HTML
   alias Phoenix.LiveView.JS
-  import BrewDashWeb.Gettext
 
   @doc """
   Renders a modal.
