@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <.live_title>
-      <%= assigns[:page_title] || "Admin BrewDash" %>
+      {assigns[:page_title] || "Admin BrewDash"}
     </.live_title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content={get_csrf_token()} />
@@ -11,6 +11,6 @@
     </script>
   </head>
   <body>
-    <%= @inner_content %>
+    {@inner_content}
   </body>
 </html>

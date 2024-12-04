@@ -1,8 +1,8 @@
 <.live_component module={BrewDashWeb.Admin.MenuComponent} id="menu" />
 
 <div class="w-full px-4 py-4">
-  <p class="alert alert-info" role="alert"><%= Phoenix.Flash.get(@flash, :info) %></p>
-  <p class="alert alert-danger" role="alert"><%= Phoenix.Flash.get(@flash, :error) %></p>
+  <p class="alert alert-info" role="alert">{Phoenix.Flash.get(@flash, :info)}</p>
+  <p class="alert alert-danger" role="alert">{Phoenix.Flash.get(@flash, :error)}</p>
 
   <h2>
     Brew Sessions <.link patch={~p"/admin/brews/new"} class="button">New</.link>
@@ -23,21 +23,21 @@
       <%= for brew <- @brew_sessions do %>
         <tr class="even:bg-slate-100">
           <td class="flex justify-end px-4">
-            <%= brew.batch_number %>
+            {brew.batch_number}
           </td>
           <td>
-            <%= brewed_date_iso!(brew) %>
+            {brewed_date_iso!(brew)}
           </td>
           <td>
-            <.link patch={~p"/admin/brews/#{brew}/edit"}><%= name(brew) %></.link>
+            <.link patch={~p"/admin/brews/#{brew}/edit"}>{name(brew)}</.link>
           </td>
           <td>
-            <%= brew.status %>
+            {brew.status}
           </td>
           <td class="flex">
             <%= if brew.source != nil do %>
               <.icon_with_tool_tip tip="Syncronized Brew Session" image="refresh-cw.svg" />
-              <small class="px-3"><%= brew.source %></small>
+              <small class="px-3">{brew.source}</small>
             <% end %>
           </td>
         </tr>

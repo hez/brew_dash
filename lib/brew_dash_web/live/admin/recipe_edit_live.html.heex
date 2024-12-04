@@ -10,7 +10,7 @@
   </h2>
 
   <%= unless(is_nil(@recipe.source)) do %>
-    <h4>Source: <%= @recipe.source %> / <%= @recipe.source_id %></h4>
+    <h4>Source: {@recipe.source} / {@recipe.source_id}</h4>
   <% end %>
 
   <.simple_form :let={f} for={@changeset} phx-change="validate" phx-submit="save">

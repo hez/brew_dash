@@ -3,7 +3,7 @@
     <%= if assigns[:title] == [] do %>
       <span class="text-xl font-bold px-8">Cellar Inventory</span>
     <% else %>
-      <%= render_slot(@title) %>
+      {render_slot(@title)}
     <% end %>
   </div>
 
@@ -11,7 +11,7 @@
     <div class="flex w-full p-8 justify-center">
       <a phx-click="filter" class="button" phx-target={@myself}>Full List</a>
       <div class="px-8">
-        Filtering by <%= filter_type(assigns) %>: <%= filter_value(assigns) %>
+        Filtering by {filter_type(assigns)}: {filter_value(assigns)}
       </div>
     </div>
   <% end %>
@@ -38,21 +38,21 @@
               phx-value-company={bottle.company}
               class="cursor-pointer underline hover:decoration-blue-400"
             >
-              <%= bottle.company %>
+              {bottle.company}
             </td>
-            <td><%= bottle.name %></td>
-            <td class="text-right"><%= bottle.vintage %></td>
-            <td class="text-right"><%= bottle.quantity %></td>
+            <td>{bottle.name}</td>
+            <td class="text-right">{bottle.vintage}</td>
+            <td class="text-right">{bottle.quantity}</td>
             <td
               phx-click="filter"
               phx-target={@myself}
               phx-value-location={bottle.location}
               class="text-right cursor-pointer underline hover:decoration-blue-400"
             >
-              <%= bottle.location %>
+              {bottle.location}
             </td>
             <td class="flex">
-              <%= render_slot(@actions, bottle) %>
+              {render_slot(@actions, bottle)}
             </td>
           </tr>
         <% end %>

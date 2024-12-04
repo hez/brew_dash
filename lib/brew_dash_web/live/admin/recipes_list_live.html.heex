@@ -1,8 +1,8 @@
 <.live_component module={BrewDashWeb.Admin.MenuComponent} id="menu" />
 
 <div class="w-full px-4 py-4">
-  <p class="alert alert-info" role="alert"><%= Phoenix.Flash.get(@flash, :info) %></p>
-  <p class="alert alert-danger" role="alert"><%= Phoenix.Flash.get(@flash, :error) %></p>
+  <p class="alert alert-info" role="alert">{Phoenix.Flash.get(@flash, :info)}</p>
+  <p class="alert alert-danger" role="alert">{Phoenix.Flash.get(@flash, :error)}</p>
 
   <h2>
     Recipes
@@ -26,14 +26,14 @@
       <%= for recipe <- @recipes do %>
         <tr class="even:bg-slate-100">
           <td>
-            <.link patch={~p"/admin/recipes/#{recipe}/edit"}><%= recipe.name %></.link>
+            <.link patch={~p"/admin/recipes/#{recipe}/edit"}>{recipe.name}</.link>
           </td>
 
           <td class="flex">
             <.archived_icon recipe={recipe} />
             <%= if recipe.source != nil do %>
               <.icon_with_tool_tip tip="Syncronized Recipe" image="refresh-cw.svg" />
-              <small class="px-3"><%= recipe.source %></small>
+              <small class="px-3">{recipe.source}</small>
             <% end %>
           </td>
         </tr>

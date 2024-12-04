@@ -40,20 +40,20 @@ defmodule BrewDashWeb.HistoryLive do
   def years_brew_sessions(assigns) do
     ~H"""
     <tr :if={@first}>
-      <th><%= @first.brewed_at.year %></th>
+      <th>{@first.brewed_at.year}</th>
       <th></th>
       <th></th>
     </tr>
 
     <tr :for={brew <- @brews}>
       <td class="ps-4">
-        <%= brew |> brewed_at!() |> month_name() %> <%= brew |> brewed_at!() |> day_of_month() %>
+        {brew |> brewed_at!() |> month_name()} {brew |> brewed_at!() |> day_of_month()}
       </td>
       <td>
-        <%= brew.batch_number %>
+        {brew.batch_number}
       </td>
       <td>
-        <%= name(brew) %>
+        {name(brew)}
       </td>
     </tr>
     """

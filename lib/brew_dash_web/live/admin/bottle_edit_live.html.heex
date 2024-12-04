@@ -1,11 +1,11 @@
 <.live_component module={BrewDashWeb.Admin.MenuComponent} id="menu" />
 
 <div class="container px-8">
-  <p class="alert alert-info" role="alert"><%= Phoenix.Flash.get(@flash, :info) %></p>
-  <p class="alert alert-danger" role="alert"><%= Phoenix.Flash.get(@flash, :error) %></p>
+  <p class="alert alert-info" role="alert">{Phoenix.Flash.get(@flash, :info)}</p>
+  <p class="alert alert-danger" role="alert">{Phoenix.Flash.get(@flash, :error)}</p>
 
   <%= if(@live_action != :new) do %>
-    <h2><%= @bottle.company %> - <%= @bottle.name %> (<%= @bottle.vintage %>)</h2>
+    <h2>{@bottle.company} - {@bottle.name} ({@bottle.vintage})</h2>
   <% end %>
 
   <.simple_form :let={f} for={@changeset} phx-change="validate" phx-submit="save">
