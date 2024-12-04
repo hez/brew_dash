@@ -1,15 +1,15 @@
 <.live_component module={BrewDashWeb.Admin.MenuComponent} id="menu" />
 
 <div class="container px-8">
-  <p class="alert alert-info" role="alert"><%= Phoenix.Flash.get(@flash, :info) %></p>
-  <p class="alert alert-danger" role="alert"><%= Phoenix.Flash.get(@flash, :error) %></p>
+  <p class="alert alert-info" role="alert">{Phoenix.Flash.get(@flash, :info)}</p>
+  <p class="alert alert-danger" role="alert">{Phoenix.Flash.get(@flash, :error)}</p>
 
   <%= if(@live_action != :new) do %>
-    <h2><%= name(@brew) %></h2>
+    <h2>{name(@brew)}</h2>
   <% end %>
 
   <%= unless(is_nil(@brew.source)) do %>
-    <h4>Source: <%= @brew.source %> / <%= @brew.source_id %></h4>
+    <h4>Source: {@brew.source} / {@brew.source_id}</h4>
   <% end %>
 
   <.simple_form :let={f} for={@changeset} phx-change="validate" phx-submit="save">
@@ -64,7 +64,7 @@
 
     <div class="py-2">
       <label>Tags</label>
-      <%= inspect(@brew.tags) %>
+      {inspect(@brew.tags)}
     </div>
 
     <div class="py-2">
